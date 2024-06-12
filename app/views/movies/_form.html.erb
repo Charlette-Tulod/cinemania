@@ -1,47 +1,73 @@
-<%= form_with(model: movie) do |form| %>
-  <% if movie.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-      <ul>
-        <% movie.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+
+<%= form_with(model: movie, local: true) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2>Please fill out the form properly</h2>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' + (@movie.errors[:title].any? ? ' is-invalid' : '') %>
+    <% if @movie.errors[:title].any? %>
+      <div class="invalid-feedback">
+        <%= @movie.errors.full_messages_for(:title).join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :duration, style: "display: block" %>
-    <%= form.text_field :duration %>
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.text_area :duration, class: 'form-control' + (@movie.errors[:release_date].any? ? ' is-invalid' : '') %>
+    <% if @movie.errors[:duration].any? %>
+      <div class="invalid-feedback">
+        <%= @movie.errors.full_messages_for(:duration).join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' + (@movie.errors[:description].any? ? ' is-invalid' : '') %>
+    <% if @movie.errors[:description].any? %>
+      <div class="invalid-feedback">
+        <%= @movie.errors.full_messages_for(:description).join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :genre, style: "display: block" %>
-    <%= form.text_field :genre %>
+  <div class="field">
+    <%= form.label :genre %>
+    <%=  form.text_area :genre,  class: 'form-control' + (@movie.errors[:genre].any? ? ' is-invalid' : '') %>
+    <% if @movie.errors[:genre].any? %>
+      <div class="invalid-feedback">
+        <%= @movie.errors.full_messages_for(:genre).join(", ") %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :ratings, style: "display: block" %>
-    <%= form.text_field :ratings %>
+  <div class="field">
+  <%= form.label :ratings %>
+  <%= form.text_field :ratings, class: 'form-control' + (@movie.errors[:ratings].any? ? ' is-invalid' : '') %>
+  <% if @movie.errors[:ratings].any? %>
+    <div class="invalid-feedback">
+      <%= @movie.errors.full_messages_for(:ratings).join(", ") %>
+    </div>
+  <% end %>
+</div>
+
+  <div class="field">
+  <%= form.label :director %>
+  <%= form.text_field :director, class: 'form-control' + (@movie.errors[:director].any? ? ' is-invalid' : '') %>
+  <% if @movie.errors[:director].any? %>
+  <div class="invalid-feedback">
+    <%= @movie.errors.full_messages_for(:director).join(", ") %>
+  </div>
+  <% end %>
   </div>
 
-  <div>
-    <%= form.label :director, style: "display: block" %>
-    <%= form.text_field :director %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
