@@ -2,66 +2,66 @@
 
 <%= form_with(model: movie, local: true) do |form| %>
   <% if movie.errors.any? %>
-    <div id="error_explanation">
-      <h2>Please fill out the form properly</h2>
+    <div id="error">
+      <h2>Please complete the form properly</h2>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="attribute">
     <%= form.label :title %>
     <%= form.text_field :title, class: 'form-control' + (@movie.errors[:title].any? ? ' is-invalid' : '') %>
     <% if @movie.errors[:title].any? %>
-      <div class="invalid-feedback">
+      <div class="validations">
         <%= @movie.errors.full_messages_for(:title).join(", ") %>
       </div>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="attribute">
     <%= form.label :duration %>
-    <%= form.text_area :duration, class: 'form-control' + (@movie.errors[:release_date].any? ? ' is-invalid' : '') %>
+    <%= form.text_area :duration, class: 'form-control' + (@movie.errors[:duration].any? ? ' is-invalid' : '') %>
     <% if @movie.errors[:duration].any? %>
-      <div class="invalid-feedback">
+      <div class="validations">
         <%= @movie.errors.full_messages_for(:duration).join(", ") %>
       </div>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="attribute">
     <%= form.label :description %>
     <%= form.text_area :description, class: 'form-control' + (@movie.errors[:description].any? ? ' is-invalid' : '') %>
     <% if @movie.errors[:description].any? %>
-      <div class="invalid-feedback">
+      <div class="validations">
         <%= @movie.errors.full_messages_for(:description).join(", ") %>
       </div>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="attribute">
     <%= form.label :genre %>
     <%=  form.text_area :genre,  class: 'form-control' + (@movie.errors[:genre].any? ? ' is-invalid' : '') %>
     <% if @movie.errors[:genre].any? %>
-      <div class="invalid-feedback">
+      <div class="validations">
         <%= @movie.errors.full_messages_for(:genre).join(", ") %>
       </div>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="attribute">
   <%= form.label :ratings %>
   <%= form.text_field :ratings, class: 'form-control' + (@movie.errors[:ratings].any? ? ' is-invalid' : '') %>
   <% if @movie.errors[:ratings].any? %>
-    <div class="invalid-feedback">
+    <div class="validations">
       <%= @movie.errors.full_messages_for(:ratings).join(", ") %>
     </div>
   <% end %>
 </div>
 
-  <div class="field">
+  <div class="attribute">
   <%= form.label :director %>
   <%= form.text_field :director, class: 'form-control' + (@movie.errors[:director].any? ? ' is-invalid' : '') %>
   <% if @movie.errors[:director].any? %>
-  <div class="invalid-feedback">
+  <div class="validations">
     <%= @movie.errors.full_messages_for(:director).join(", ") %>
   </div>
   <% end %>
