@@ -1,10 +1,39 @@
-<p style="color: green"><%= notice %></p>
+<div class="parent-container">
+<div class="sub-container">
+  <p>
+    <strong>Title:</strong>
+    <%= @movie.title %>
+  </p>
 
-<%= render @movie %>
+  <p>
+    <strong>Duration:</strong>
+    <%= @movie.duration %>
+  </p>
 
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
+  <p>
+    <strong>Description:</strong>
+    <%= @movie.description %>
+  </p>
 
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+  <p>
+    <strong>Genre:</strong>
+    <%= @movie.genre %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= @movie.ratings %>
+  </p>
+
+  <p>
+    <strong>Director:</strong>
+    <%= @movie.director %>
+  </p>
+
+  <div class="actions">
+  <%= link_to "Edit ", edit_movie_path(@movie) %>
+   <%= link_to "Back ", movies_path %> 
+    <%= button_to "Delete", @movie, method: :delete, class: "actions" %>
+  </div>
+</div>
 </div>
