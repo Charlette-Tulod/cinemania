@@ -91,3 +91,10 @@ Naming/VariableName:
 # Avoids excessive parameter lists in methods.
 Metrics/ParameterLists:
   Max: 5
+
+# Enforce compact style for class names
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Include:
+    - "ActionController::Base": "app/controllers/**/*.rb"
+    - "ActiveModel::Serializer": "app/serializers/**/*.rb"
