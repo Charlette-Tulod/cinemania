@@ -23,5 +23,6 @@ module Cinemania
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Dir['./lib/**/*.rb'].each { |file| require file }
   end
 end
